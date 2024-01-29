@@ -27,7 +27,7 @@ export const Buttons = ({
       </Button> */}
       <Button
         type="button"
-        variant="danger"
+        variant="success"
         onClick={() => {
           handleResetData(setter);
         }}

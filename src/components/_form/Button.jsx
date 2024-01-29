@@ -12,8 +12,7 @@ export default function Button({
       className={classNames({
         "h-8 rounded-md ml-2 mt-2 px-5 text-center text-white  text-base flex items-center justify-center cursor-pointer disabled:cursor-not-allowed disabled:bg-opacity-100": true,
         "bg-transparent": variant === "default",
-        "bg-tertiary/95": variant === "success",
-        "bg-tertiary": variant === "danger",
+        "bg-tertiary": variant === "success",
         "bg-tertiary/95": variant === "warning",
         "bg-primary": variant === "info",
       })}
