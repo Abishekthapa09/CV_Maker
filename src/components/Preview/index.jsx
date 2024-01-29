@@ -52,80 +52,82 @@ export const Preview = forwardRef(({ array }, ref) => {
 
   return (
     <section>
-    <h1 className="bg-tertiary drop-shadow-sm text-white py-4 text-center text-2xl font-bold mb-2">Here is a preview of your remarkable CV.</h1>
+      <h1 className="bg-tertiary drop-shadow-sm text-white py-4 text-center text-2xl font-bold mb-2">Here is a preview of your remarkable CV.</h1>
 
-    <div
-      className="w-full h-full flex items-start justify-start overflow-auto"
-      style={{ background: colors.body }}
-      ref={ref}
-      contentEditable={isContentEditable}
-      suppressContentEditableWarning={true}
-    >
-    
       <div
-        className="w-2/6 h-auto min-h-full p-6"
+        className="w-full h-full flex items-start justify-start overflow-auto"
+        style={{ background: colors.body }}
+        ref={ref}
+        contentEditable={isContentEditable}
+        suppressContentEditableWarning={true}
       >
-        <PreviewPersonal />
-        <DragDropContext onDragEnd={handleOnDrugEndLeft}>
-          <Droppable droppableId="leftSide">
-            {(provided) => (
-              <div {...provided.droppableProps} ref={provided.innerRef}>
-                {leftSide.map((item, index) => (
-                  <Draggable
-                    key={`${item.id}`}
-                    draggableId={`${item.id}`}
-                    index={index}
-                    isDragDisabled={isContentEditable}
-                  >
-                    {(provided) => (
-                      <div
-                        {...provided.draggableProps}
-                        {...provided.dragHandleProps}
-                        ref={provided.innerRef}
-                      >
-                        {previews[item.component]}
-                      </div>
-                    )}
-                  </Draggable>
-                ))}
-                {provided.placeholder}
-              </div>
-            )}
-          </Droppable>
-        </DragDropContext>
+
+        <div
+          className="w-2/6 h-auto min-h-full p-6"
+        >
+
+          <PreviewPersonal />
+          <DragDropContext onDragEnd={handleOnDrugEndLeft}>
+            <Droppable droppableId="leftSide">
+              {(provided) => (
+                <div {...provided.droppableProps} ref={provided.innerRef}>
+                  {leftSide.map((item, index) => (
+                    <Draggable
+                      key={`${item.id}`}
+                      draggableId={`${item.id}`}
+                      index={index}
+                      isDragDisabled={isContentEditable}
+                    >
+                      {(provided) => (
+                        <div
+                          {...provided.draggableProps}
+                          {...provided.dragHandleProps}
+                          ref={provided.innerRef}
+                        >
+                          {previews[item.component]}
+                        </div>
+                      )}
+                    </Draggable>
+                  ))}
+                  {provided.placeholder}
+                </div>
+              )}
+            </Droppable>
+          </DragDropContext>
+        </div>
+        <div className="w-4/6 h-auto min-h-full">
+        <div className=" absolute opacity-40 right-2"><img src="/Logo.png" width="150px"  /></div>
+          <PreviewHeader />
+          <DragDropContext onDragEnd={handleOnDrugEndRight}>
+            <Droppable droppableId="rightSide">
+              {(provided) => (
+                <div {...provided.droppableProps} ref={provided.innerRef}>
+                  {rightSide.map((item, index) => (
+                    <Draggable
+                      key={`${item.id}`}
+                      draggableId={`${item.id}`}
+                      index={index}
+                      isDragDisabled={isContentEditable}
+                    >
+                      {(provided) => (
+                        <div
+                          {...provided.draggableProps}
+                          {...provided.dragHandleProps}
+                          ref={provided.innerRef}
+                        >
+                          {previews[item.component]}
+                        </div>
+                      )}
+                    </Draggable>
+                  ))}
+                  {provided.placeholder}
+                </div>
+              )}
+            </Droppable>
+          </DragDropContext>
+          
+        </div>
       </div>
-      <div className="w-4/6 h-auto min-h-full">
- 
-        <PreviewHeader />
-        <DragDropContext onDragEnd={handleOnDrugEndRight}>
-          <Droppable droppableId="rightSide">
-            {(provided) => (
-              <div {...provided.droppableProps} ref={provided.innerRef}>
-                {rightSide.map((item, index) => (
-                  <Draggable
-                    key={`${item.id}`}
-                    draggableId={`${item.id}`}
-                    index={index}
-                    isDragDisabled={isContentEditable}
-                  >
-                    {(provided) => (
-                      <div
-                        {...provided.draggableProps}
-                        {...provided.dragHandleProps}
-                        ref={provided.innerRef}
-                      >
-                        {previews[item.component]}
-                      </div>
-                    )}
-                  </Draggable>
-                ))}
-                {provided.placeholder}
-              </div>
-            )}
-          </Droppable>
-        </DragDropContext>
-      </div>
-    </div>
     </section>
   );
 });
