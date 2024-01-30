@@ -14,7 +14,7 @@ export const PreviewPersonal = () => {
     <div className={styles.container}>
       {photo && (
         <div className={styles.photo}>
-          <img className={styles.rounded} src={photo} alt="" />
+          <img className={styles.rounded} src={photo} alt="Profile photo"/>
         </div>
       )}
       {address && (

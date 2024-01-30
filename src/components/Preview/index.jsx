@@ -96,7 +96,7 @@ export const Preview = forwardRef(({ array }, ref) => {
           </DragDropContext>
         </div>
         <div className="w-4/6 h-auto min-h-full">
-        <div className=" absolute opacity-40 right-2"><img src="/Logo.png" width="150px"  /></div>
+        <div className=" absolute right-4"><img src="/Logo.png" width="100px"  /></div>
           <PreviewHeader />
           <DragDropContext onDragEnd={handleOnDrugEndRight}>
             <Droppable droppableId="rightSide">
